@@ -12,7 +12,7 @@ This sample does not include using OAuth2.0 to make requests against Xero's publ
    - **Note**: When creating your app, be sure to add a redirect uri for `http://localhost:5000/signin-oidc` as the sample will run on port 5000 and bootstrap a callback path for `/signin-oidc`.  
    ![Redirect Uri](Docs/Images/redirecturi.png)
 2. Update the [appsettings.json](XeroSignInSample/appsettings.json) file to include your ClientId and ClientSecret.
-3. Run the sample from the command line in the [XeroSignInSample-DotNetCore/XeroSignInSample](XeroSignInSample) directory using the command `dotnet run`, or using your favorite IDE.
+3. Run the sample from the command line in the [XeroSignInSample-DotNetCore/XeroSignInSample/XeroSignInSample](XeroSignInSample) directory using the command `dotnet run`, or using your favorite IDE.
 
 ## Ok, cool! How does it work though?
 
