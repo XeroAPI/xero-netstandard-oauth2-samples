@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Outstanding Invoices";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <p>You have no organisations connected</p>
+    @Html.ActionLink("Connect an organisation", "AddConnection", "Home")
+</div>
