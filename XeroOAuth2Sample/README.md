@@ -42,7 +42,7 @@ services.TryAddSingleton<MemoryTokenStore>();
 
 `services.AddHttpClient` registers an instantiation of `IHttpClientFactory`, which along with the `XeroConfiguration` singleton, are constructor parameters for the `XeroClient` instantiation of `IXeroClient`.  
 The `XeroClient` and `AccountingApi` classes interface with the Xero API via OAuth2.0 and OIDC. Both of which are provided via Nuget packages: [Xero.NetStandard.OAuth2Client](https://www.nuget.org/packages/Xero.NetStandard.OAuth2Client) and [Xero.NetStandard.OAuth2](https://www.nuget.org/packages/Xero.NetStandard.OAuth2) respectively.  
-The `MemoryTokenStore` singleton is just a very simple token store using an in memory dictionary as token storage. It will be used to store access/refresh tokens against Xero UserIds to be used when retrieving data from Xero's API. The implementation of `MemoryTokenStore` can be found [here](XeroOAuth2Sample\Example\MemoryTokenStore)
+The `MemoryTokenStore` singleton is just a very simple token store using an in memory dictionary as token storage. It will be used to store access/refresh tokens against Xero UserIds to be used when retrieving data from Xero's API. The implementation of `MemoryTokenStore` can be found [here](XeroOAuth2Sample/Example/MemoryTokenStore.cs).
 
 2. Now, we'll look at how authentication is implemented for this sample.  
 Firstly we're stating that we want to use cookies as our default authentication scheme, and naming the challenge scheme (*"XeroSignIn"*) that we'd like to use as our default challenge scheme. You'll see this challenge scheme (along with the *XeroSignUp* challenge scheme) implemented in the next section of code, along with an explanation of the differences between the two. We've chosen the *XeroSignIn* challenge scheme as the default because our users are more likely to want to sign into our app rather than sign up new connections when revisiting our app.
@@ -230,7 +230,7 @@ return View(model);
 2. Clicking the Xero sign in or Xero sign up buttons route the user to our specific secure routes.
 3. Microsoft's OIDC implementation kicks in and takes the user through the Xero sign in process.
    1. The user is taken through the Xero sign in process, granting user consent to your app if it's their first time.
-      a. The user is also prompted to connect an organisation if you've asked for organisation specific scopes.
+      1. The user is also prompted to connect an organisation if you've asked for organisation specific scopes.
    2. The entire OIDC flow is handled for you. No need to swap authorisation codes for access/id/refresh tokens.
    3. The User Principal is set, including all the claims attached to the id token provided by Xero.
    4. Our OnTokenValidated event stores the users access token so it can later be used to access Xero's API.
