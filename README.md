@@ -1,4 +1,4 @@
-# Xero OAuth2 Samples - DotNetCore
+# xero-netstandard-oauth2-samples
 Contains some different sample apps showing example usages of Xero Sign In, and Xero API access with OAuth2. Details of each sample can be found in their respective README files
 
 ### Samples contained in this repository
