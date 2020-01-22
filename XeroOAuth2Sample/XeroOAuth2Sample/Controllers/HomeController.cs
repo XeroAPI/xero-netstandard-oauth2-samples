@@ -61,7 +61,7 @@ namespace XeroOAuth2Sample.Controllers
                 var organisations = await _accountingApi.GetOrganisationsAsync(accessToken, tenantId);
                 var organisationName = organisations._Organisations[0].Name;
 
-                var outstandingInvoices = await _accountingApi.GetInvoicesAsync(accessToken, tenantId, statuses: "AUTHORISED", where: "Type == \"ACCREC\"");
+                var outstandingInvoices = await _accountingApi.GetInvoicesAsync(accessToken, tenantId, statuses: new List<string>{"AUTHORISED"}, where: "Type == \"ACCREC\"");
 
                 data[organisationName] = outstandingInvoices._Invoices.Count;
             }
