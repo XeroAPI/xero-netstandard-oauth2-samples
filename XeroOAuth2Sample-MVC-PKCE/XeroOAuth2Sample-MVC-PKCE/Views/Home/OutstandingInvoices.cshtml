@@ -1,0 +1,19 @@
+﻿@model OutstandingInvoicesViewModel
+
+@{
+    ViewData["Title"] = "Outstanding Invoices";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <p><b>Hello @Model.Name!</b> Thanks for signing in with Xero</p>
+    <hr />
+    @{
+        foreach (var (key, value) in Model.Data)
+        {
+        <p><b>@key</b> has @value outstanding invoice(s)</p>
+        }
+    }
+
+    @Html.ActionLink("Add another organisation", "AddConnection", "Home")
+</div>
