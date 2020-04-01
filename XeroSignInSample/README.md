@@ -4,7 +4,7 @@ This is an example dotnet core MVC application making use of Xero sign in.
 This sample does not include using OAuth2.0 to make requests against Xero's public API.
 
 **Pre-requisite**: 
-- This sample is a .NET Core 2.2 application, so you'll need to install [.NET Core SDK 2.2 or above](https://dotnet.microsoft.com/download).
+- This sample is a .NET Core 3.1 application, so you'll need to install [.NET Core SDK 3.1 or above](https://dotnet.microsoft.com/download).
 
 ## Getting started with this sample.
 
@@ -59,9 +59,10 @@ This section is where your OAuth2.0 client details, and requested scopes are bei
 
 Now that we've configured how we want our users to be authenticated, we've got to enable and enforce it.
 
-Looking at the *configure* method in the same `Startup` class, you'll see the following line of code. **Note**: it's important that this line of code exists before the `UseMvc` line so that the request pipeline can enforce authentication prior to routing the requests to your controllers.
+Looking at the *configure* method in the same `Startup` class, you'll see the following line of code. **Note**: it's important that these lines of code exist in this order between the `UseRouting` and `UseEndpoints` lines so that the request pipeline can enforce authentication prior to routing the requests to your controllers.
 ```
 app.UseAuthentication();
+app.UseAuthorization();
 ```
 
 Looking at the *Hello* route on our [HomeController](XeroSignInSample/Controllers/HomeController.cs), you'll see that we've set the route to require authorized users using the `Authorize` attribute.
