@@ -1,3 +1,5 @@
+📍 __Notice__ This application is now in Read Only status as it is now deprecated
+
 # xero-netstandard-oauth2-samples
 Contains some different sample apps showing example usages of Xero Sign In, and Xero API access with OAuth2. Details of each sample can be found in their respective README files
 
